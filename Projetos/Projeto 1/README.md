@@ -1,8 +1,1 @@
-
-Introdução: 
-
-Projetos: 
-
-Links: 
-
-Contato: 
+Descrição do projeto:
