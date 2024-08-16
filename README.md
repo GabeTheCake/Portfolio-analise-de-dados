@@ -31,8 +31,10 @@ Projetos:
         - Visualização dos resultados com gráficos de barras, nuvens de palavras, etc.
   
 Links:
-  - LinkedIn:     https://br.linkedin.com/in/gabriel-paschoal-motta-285907235
-  - Instagram:    https://www.instagram.com/gabrielpmotta?utm_source=qr&igsh=MW0zbDY2cGx1ZnYwNQ==            
+
+        - LinkedIn:     https://br.linkedin.com/in/gabriel-paschoal-motta-285907235
+        - Instagram:    https://www.instagram.com/gabrielpmotta?utm_source=qr&igsh=MW0zbDY2cGx1ZnYwNQ==            
 
 Contato:
-  - Email: gabriel2006_11@hotmail.com
+
+        - Email: gabriel2006_11@hotmail.com
