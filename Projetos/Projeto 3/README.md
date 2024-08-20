@@ -1,10 +1,10 @@
 Objetivo com a analise: 	
 	
  	Demonstrar conhecimento dos seguintes processos:
-- Coleta de dados usando APIs;
-- Limpeza e pré-processamento de texto;
-- Aplicação de técnicas de NLP (Processamento de Linguagem Natural);
-- Visualização dos resultados com gráficos de barras, nuvens de palavras, etc.
+	- Coleta de dados usando APIs;
+	- Limpeza e pré-processamento de texto;
+	- Aplicação de técnicas de NLP (Processamento de Linguagem Natural);
+	- Visualização dos resultados com gráficos de barras, nuvens de palavras, etc.
 	
 Nome do conjunto de dados: 	
 	
