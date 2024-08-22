@@ -1,17 +1,18 @@
 Objetivo com a analise: 	
-
-  	Demonstrar conhecimento dos seguintes processos:
-  	- Limpeza e preparação dos dados;
-  	- Aplicação de algoritmos de clusterização (e.g., K-means);
-  	- Análise dos clusters formados;
-  	- Visualização dos clusters em gráficos de dispersão.
+	
+ 	Demonstrar conhecimento dos seguintes processos:
+	- Coleta de dados usando APIs;
+	- Limpeza e pré-processamento de texto;
+	- Aplicação de técnicas de NLP (Processamento de Linguagem Natural);
+	- Visualização dos resultados com gráficos de barras, nuvens de palavras, etc.
 	
 Nome do conjunto de dados: 	
 	
-	Social Media Sentiments Analysis Dataset 
+	Customer Clustering
 	
-Fonte do conjunto de dados:
-
- 	https://www.kaggle.com/datasets/kashishparmar02/social-media-sentiments-analysis-dataset
+Fonte do conjunto de dados: 	
+  
+	https://www.kaggle.com/datasets/dev0914sharma/customer-clustering
 	
 Descrição detalhada do projeto: 
+		
