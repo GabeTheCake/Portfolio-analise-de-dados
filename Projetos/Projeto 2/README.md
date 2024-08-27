@@ -1,3 +1,7 @@
+Nome do conjunto de dados: 	
+	
+	Logisticregression telecomCustomer churmprediction
+
 Objetivo com a analise: 	
 	
  	Demonstrar conhecimento dos seguintes processos:
@@ -5,10 +9,6 @@ Objetivo com a analise:
 	- Análise exploratória de dados (EDA);
 	- Construção e avaliação de modelos preditivos (e.g., regressão linear, ARIMA);
 	- Visualização dos resultados e das previsões. 
-	
-Nome do conjunto de dados: 	
-	
-	Logisticregression telecomCustomer churmprediction
 	
 Fonte do conjunto de dados: 	
   
