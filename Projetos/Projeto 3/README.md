@@ -1,17 +1,16 @@
-Nome do conjunto de dados: 	
-	
-	Social Media Sentiments Analysis Dataset 
+# Informações do projeto
+## Nome do conjunto de dados: 	
+Social Media Sentiments Analysis Dataset 
 
-Objetivo com a analise: 	
-
-  	Demonstrar conhecimento dos seguintes processos:
+## Objetivo com a analise: 	
+  Demonstrar conhecimento dos seguintes processos:
+  
   	- Limpeza e preparação dos dados;
   	- Aplicação de algoritmos de clusterização (e.g., K-means);
   	- Análise dos clusters formados;
   	- Visualização dos clusters em gráficos de dispersão.
 	
-Fonte do conjunto de dados:
-
- 	https://www.kaggle.com/datasets/kashishparmar02/social-media-sentiments-analysis-dataset
+## Fonte do conjunto de dados:
+ https://www.kaggle.com/datasets/kashishparmar02/social-media-sentiments-analysis-dataset
 	
-Descrição detalhada do projeto: 
+## Descrição detalhada do projeto: 
