@@ -1,3 +1,7 @@
+Nome do conjunto de dados: 	
+	
+	Customer Clustering
+
 Objetivo com a analise: 	
 	
  	Demonstrar conhecimento dos seguintes processos:
@@ -5,10 +9,6 @@ Objetivo com a analise:
 	- Limpeza e pré-processamento de texto;
 	- Aplicação de técnicas de NLP (Processamento de Linguagem Natural);
 	- Visualização dos resultados com gráficos de barras, nuvens de palavras, etc.
-	
-Nome do conjunto de dados: 	
-	
-	Customer Clustering
 	
 Fonte do conjunto de dados: 	
   
