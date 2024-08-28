@@ -12,6 +12,3 @@ Customer Clustering
 	
 ## Fonte do conjunto de dados: 	
 https://www.kaggle.com/datasets/dev0914sharma/customer-clustering
-	
-## Descrição detalhada do projeto: 
-		
