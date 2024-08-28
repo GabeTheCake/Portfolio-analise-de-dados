@@ -12,6 +12,3 @@ Logisticregression telecomCustomer churmprediction
 	
 ## Fonte do conjunto de dados: 	
 https://www.kaggle.com/datasets/dileep070/logisticregression-telecomcustomer-churmprediction
-	
-## Descrição detalhada do projeto: 
-		
