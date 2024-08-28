@@ -12,5 +12,3 @@ Social Media Sentiments Analysis Dataset
 	
 ## Fonte do conjunto de dados:
  https://www.kaggle.com/datasets/kashishparmar02/social-media-sentiments-analysis-dataset
-	
-## Descrição detalhada do projeto: 
