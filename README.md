@@ -1,5 +1,5 @@
-# Portifólio
-## Introdução:
+<h1 align="center">Portfólio</h1>
+<h2 align="center">Introdução</h2>
 <p align="justify">
         Olá, bem vindo(a) ao meu repositório, este contêm três projetos que desensolvi 
         com base em databases retirados do site Kaggle! Estes projetos foram desenvolvidos
@@ -11,7 +11,7 @@
         entrar em contato atravez das informações que você encontrará aqui em baixo!
 </p>
         
-## Projetos:
+<h2 align="center">Projetos</h2>
 
   - Projeto 1: Clusterização de clientes;
     
@@ -34,9 +34,11 @@
         - Aplicação de técnicas de NLP (Processamento de Linguagem Natural);
         - Visualização dos resultados com gráficos de barras, nuvens de palavras, etc.
   
-## Links:
+<h2 align="center">Links</h2>
+
 - LinkedIn:         https://br.linkedin.com/in/gabriel-paschoal-motta-285907235
 - Instagram:        https://www.instagram.com/gabrielpmotta?utm_source=qr&igsh=MW0zbDY2cGx1ZnYwNQ==            
 
-## Contato:
+<h2 align="center">Contato</h2>
+
 - Email:        gabriel2006_11@hotmail.com
