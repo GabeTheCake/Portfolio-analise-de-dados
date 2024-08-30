@@ -17,7 +17,7 @@ Com base na descrição, pode-se saber qual trabalho deve ser executado em tal d
 Após o download dos arquivos e processa-los para a visualização no software IDLE (“Compilador de Python’), estudou-se as informações que nele continha, a partir dai começou-se um processo por passos. A seguir estão os processos do início ao fim dos trabalhos exercidos com base nos dados baixados.
 </p>
 
-## Primeiro passo: Definir perguntas que irão definir os processos que serão realizados e definir os processos com base nas perguntas.
+## 1º passo: Definir perguntas que irão definir os processos que serão realizados e definir os processos com base nas perguntas.
 
 Perguntas feitas: 
 
@@ -26,7 +26,7 @@ Perguntas feitas:
  	Qual o estado civil do cliente alvo?
   	Qual o grau de estudo do cliente alvo?
 
-## Segundo passo: Definir e Importar bibliotecas que serão utilizadas.
+## 2º passo: Definir e Importar bibliotecas que serão utilizadas.
 
 Para a leitura e manejo dos bancos de dados será utilizada a biblioteca PANDAS. 
 Para a plotagem, a transformação dos dados em gráficos e visuais, sera utilizado Matplotlib.pyplot. 
@@ -37,12 +37,12 @@ Para tambem auxiliar com gráficos e artigos visuais será importado o Seaborn.
 	from matplotlib.colors import ListedColormap
 	import seaborn as sns
 
-## Terceiro passo: Carregar bancos de dados (bd) ou database (db) em inglês.
+## 3º passo: Carregar bancos de dados (bd) ou database (db) em inglês.
 No código chamaremos a base de dados, database, de db. 
 
 	db = pd.read_csv("C:/Users/conta/Portfolio/Projetos/Projeto 1/Dados/segmentation data.csv")
 
-## Quarto passo: Explorar banco de dados.
+## 4º passo: Explorar banco de dados.
 Com alguns comandos básicos analisou-se a estrutura do banco de dados, as colunas, tipo de dados armazenados nas colunas, o tamanho do mesmo, quantidade de linhas e colunas que ele possuia, quantidade de dados únicos e quantidade de dados nulos ou faltantes bem como linhas em branco.
 
 	print("Head\n", db.head(), "\n")
@@ -50,8 +50,8 @@ Com alguns comandos básicos analisou-se a estrutura do banco de dados, as colun
 	print("Describe\n", db.describe(), "\n")
 	print("Nunique\n", db.nunique(), "\n")
 
-<p align="center"><b>Output:</b> </p>
-<b> head() </b>
+<p align="center"><b>Output</b> </p>
+<b> HEAD </b>
 
 |  |         ID | Sex | Marital status | ...| Income | Occupation | Settlement size|
 |--|------------|-----|----------------|----|--------|------------|----------------|
@@ -63,7 +63,7 @@ Com alguns comandos básicos analisou-se a estrutura do banco de dados, as colun
 
 [5 rows x 8 columns] 
 
-<b> info() </b>
+<b> INFO </b>
 
 <class 'pandas.core.frame.DataFrame'>
 RangeIndex: 2000 entries, 0 to 1999
@@ -82,7 +82,7 @@ Data columns (total 8 columns):
 dtypes: int64(8)
 memory usage: 125.1 KB
 
-<b> describe() </b>
+<b> DESCRIBE </b>
 
 |      |         ID   |     Sex     | ... |  Occupation   | Settlement size|
 |------|--------------|-------------|-----|---------------|--------------|		  
@@ -95,7 +95,7 @@ memory usage: 125.1 KB
 |75%   | 1.000015e+08 |    1.000000 | ... |    1.000000   |      1.000000|
 |max   | 1.000020e+08 |    1.000000 | ... |    2.000000   |      2.000000|
 
-<b> nunique() </b>
+<b> NUNIQUE </b>
 
 |Columns          |Unique Values|
 |-----------------|------|
@@ -107,17 +107,18 @@ memory usage: 125.1 KB
 |Income           |  1982|
 |Occupation       |     3|
 |Settlement size  |     3|
-|dtype:           | int64|
+
+dtype: int64
 
 Neste ultimo comando, fora necessario acrescentar manualmente para melhor visualização deste documento a parte superior da tabela: "Columns" e "Unique Values".
 
-## Quinto passo: Remover colunas inuteis para analise.
-Visando facilita a visualização e analise dos dados, foram removidos as colunas que não possuiriam utilidade. Neste caso foi somente uma: ID.
+## 5º passo: Remover colunas inuteis para analise.
+Visando facilitar a visualização e analise dos dados, foram removidos as colunas que não possuem utilidade para este trabalho. Neste caso foi somente uma: ID.
 
 	db.drop(labels=["ID"],axis=1,inplace=True)
 
-## Sexto passo: HeatMap para averigar o contexto geral.
-Antes de continuar para o tratamento dos dados caos houver a necessidade para tal e com a coluna ID removida, chegou-se a conclusão que seria viável uma analise utilizando HeatMap dos dados crús buscando algum insight inicial de para onde a analise poderia estar rumando.
+## 6º passo: HeatMap para averigar o contexto geral.
+Antes de continuar para o tratamento dos dados caso houver a necessidade para tal e com a coluna ID removida, chegou-se a conclusão que seria viável uma analise utilizando HeatMap dos dados crús buscando algum insight inicial de para onde a analise poderia estar rumando.
 
 	corr = db.corr()
 	plt.figure(figsize=(10, 8))
@@ -130,7 +131,7 @@ Antes de continuar para o tratamento dos dados caos houver a necessidade para ta
 
 O HeatMap apresentou valores inconclusivos, o maior valor 0.68 e o menor -0.30(Lembrando que o maximo é 1 e o minimo é -1, sendo 1 totalmente proporcional e -1 totalmente inversamente proporcional, 0 seria nenhum relação).
 
-## Sétimo passo: Começar o processo de tratamento e limpeza de dados se houver necessidade para EDA(analise de data exploratória).
+## 7º passo: Começar o processo de tratamento e limpeza de dados se houver necessidade para EDA(analise de data exploratória).
 
 Após checkar os dados notou-se que não haviam dados nulos (NaN), entretanto, a maioria dos dados estavam dependentes de legendas para interpretação. Exemplo: Na coluna gênero, 0 representava homem e 1 representava mulher. Visando tornar mais intuitivo a demonstração de dados, substitui-se os dados numéricos quando possivel pelos seus reais significados. Além disso, corrigiu-se o tipo de data de duas colunas numericas: Age e Income.
 
@@ -153,9 +154,9 @@ Após checkar os dados notou-se que não haviam dados nulos (NaN), entretanto, a
 	db['Income'] = db['Income'].astype(float)
 
 
-## Sexto passo: Começar o processo de EDA, verificar relações entre colunas, quais colunas são necessárias e quais podem deixar a tabela.
+## 8º passo: Começar o processo de EDA, verificar relações entre colunas, quais colunas são necessárias e quais podem deixar a tabela.
 
-## Sétimo passo: Remover colunas desnecessárias.
+## 9º passo: Remover colunas desnecessárias.
 
-## Oitavo passo: Com as colunas relevantes na tabela e a ciência de quais as relações são importantes e interessantes a serem trabalhadas, começar a plotar os gráficos coerentes para o cenário.
+## 10º passo: Com as colunas relevantes na tabela e a ciência de quais as relações são importantes e interessantes a serem trabalhadas, começar a plotar os gráficos coerentes para o cenário.
 
