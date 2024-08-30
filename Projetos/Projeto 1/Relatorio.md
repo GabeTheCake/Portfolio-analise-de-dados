@@ -152,6 +152,25 @@ Após checkar os dados notou-se que não haviam dados nulos (NaN), entretanto, a
 
 	db['Income'] = db['Income'].astype(float)
 
+Após alterar os tipos dos dados, utilizou-se o seguinte comando para confirmar o sucesso da operação:
+
+	print("\n",db.dtypes,"\n")
+
+<p align="center"><b>Output</b> </p>
+
+|      Columns     |     Types     |
+|------------------|---------------|
+|Sex               | string[python]|
+|Marital status    | string[python]|
+|Age               |          int64|
+|Education         | string[python]|
+|Income            |        float64|
+|Occupation        | string[python]|
+|Settlement size   | string[python]|
+
+dtype: object 
+
+Fora necessario acrescentar manualmente para melhor visualização deste documento a parte superior da tabela: "Columns" e "Types".
 
 ## 8º passo: Começar o processo de EDA, verificar relações entre colunas, quais colunas são necessárias e quais podem deixar a tabela.
 
