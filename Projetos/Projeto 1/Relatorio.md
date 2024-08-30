@@ -144,7 +144,7 @@ Após checkar os dados notou-se que não haviam dados nulos (NaN), entretanto, a
 	db['Education'] = db['Education'].map({0:'Other/Unknown', 1:'High school', 2:'University', 3:'Graduate school'})
 	db['Education'] = db['Education'].astype('string')
 
-	db['Occupation'] = db['Occupation'].map({0:'Unemployed/Unskilled', 1:'Skilled employee/Official', 2:'Management/Self-employed/Highly qualified 			employee/Officer'})
+	db['Occupation'] = db['Occupation'].map({0:'Unemployed/Unskilled', 1:'Skilled employee/Official', 2:'Management/Self-employed/Highly qualified employee/Officer'})
 	db['Occupation'] = db['Occupation'].astype('string')
 
 	db['Settlement size'] = db['Settlement size'].map({0:'Small city', 1:'Mid-sized city', 2:'Big city'})
