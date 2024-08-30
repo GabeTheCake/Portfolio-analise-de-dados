@@ -21,9 +21,10 @@ Após o download dos arquivos e processa-los para a visualização no software I
 
 Perguntas feitas: 
 
-	Quais as colunas mais e menos relevantes;
-	Quais as informações que mais interagem entre sí;
-	O que pode-se saber dos consumidores alvo.
+	Quais os cliente mais recorrentes? Qual o cliente alvo?
+	Qual a condições financeira do cliente alvo?
+ 	Qual o estado civil do cliente alvo?
+  	Qual o grau de estudo do cliente alvo?
 
 ## Segundo passo: Definir e Importar bibliotecas que serão utilizadas.
 
