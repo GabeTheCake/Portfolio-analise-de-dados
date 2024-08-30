@@ -44,10 +44,71 @@ No código chamaremos a base de dados, database, de db.
 ## Quarto passo: Explorar banco de dados.
 Com alguns comandos básicos analisou-se a estrutura do banco de dados, as colunas, tipo de dados armazenados nas colunas, o tamanho do mesmo, quantidade de linhas e colunas que ele possuia, quantidade de dados únicos e quantidade de dados nulos ou faltantes bem como linhas em branco.
 
-	print(db.head(), "\n")
-	print(db.info(), "\n")
-	print(db.describe(), "\n")
-	print(db.nunique(), "\n")
+	print("Head\n", db.head(), "\n")
+	print("Info\n", db.info(), "\n")
+	print("Describe\n", db.describe(), "\n")
+	print("Nunique\n", db.nunique(), "\n")
+
+<p align="center"><b>Output:</b> </p>
+<b> head() </b>
+
+|  |         ID | Sex | Marital status | ...| Income | Occupation | Settlement size|
+|--|------------|-----|----------------|----|--------|------------|----------------|
+|0 | 100000001  |  0  |             0  |... | 124670 |          1 |               2|
+|1 | 100000002  |  1  |             1  |... | 150773 |          1 |               2|
+|2 | 100000003  |  0  |             0  |... |  89210 |          0 |               0|
+|3 | 100000004  |  0  |             0  |... | 171565 |          1 |               1|
+|4 | 100000005  |  0  |             0  |... | 149031 |          1 |               1|
+
+[5 rows x 8 columns] 
+
+<b> info() </b>
+
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 2000 entries, 0 to 1999
+Data columns (total 8 columns):
+| # |  Column          | Non-Null Count | Dtype|
+|---|------------------|--------------- |------|
+| 0 |  ID              | 2000 non-null  | int64|
+| 1 |  Sex             | 2000 non-null  | int64|
+| 2 |  Marital status  | 2000 non-null  | int64|
+| 3 |  Age             | 2000 non-null  | int64|
+| 4 |  Education       | 2000 non-null  | int64|
+| 5 |  Income          | 2000 non-null  | int64|
+| 6 |  Occupation      | 2000 non-null  | int64|
+| 7 |  Settlement size | 2000 non-null  | int64|
+
+dtypes: int64(8)
+memory usage: 125.1 KB
+
+<b> describe() </b>
+
+|      |         ID   |     Sex     | ... |  Occupation   | Settlement size|
+|------|--------------|-------------|-----|---------------|--------------|		  
+|count | 2.000000e+03 | 2000.000000 | ... | 2000.000000   |   2000.000000|
+|mean  | 1.000010e+08 |    0.457000 | ... |    0.810500   |      0.739000|
+|std   | 5.774946e+02 |    0.498272 | ... |    0.638587   |      0.812533|
+|min   | 1.000000e+08 |    0.000000 | ... |    0.000000   |      0.000000|
+|25%   | 1.000005e+08 |    0.000000 | ... |    0.000000   |      0.000000|
+|50%   | 1.000010e+08 |    0.000000 | ... |    1.000000   |      1.000000|
+|75%   | 1.000015e+08 |    1.000000 | ... |    1.000000   |      1.000000|
+|max   | 1.000020e+08 |    1.000000 | ... |    2.000000   |      2.000000|
+
+<b> nunique() </b>
+
+|Columns          |Unique Values|
+|-----------------|------|
+|ID               |  2000|
+|Sex              |     2|
+|Marital status   |     2|
+|Age              |    58|
+|Education        |     4|
+|Income           |  1982|
+|Occupation       |     3|
+|Settlement size  |     3|
+|dtype:           | int64|
+
+Neste ultimo comando, fora necessario acrescentar manualmente para melhor visualização deste documento a parte superior da tabela: "Columns" e "Unique Values".
 
 ## Quinto passo: Remover colunas inuteis para analise.
 Visando facilita a visualização e analise dos dados, foram removidos as colunas que não possuiriam utilidade. Neste caso foi somente uma: ID.
