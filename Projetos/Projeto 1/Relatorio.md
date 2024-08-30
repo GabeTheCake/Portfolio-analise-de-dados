@@ -129,11 +129,11 @@ Antes de continuar para o tratamento dos dados caso houver a necessidade para ta
 
 ![heatmap_correlacao](https://github.com/user-attachments/assets/5d65358a-667d-4ea6-ad52-d099495391c6)
 
-O HeatMap apresentou valores inconclusivos, o maior valor 0.68 e o menor -0.30(Lembrando que o maximo é 1 e o minimo é -1, sendo 1 totalmente proporcional e -1 totalmente inversamente proporcional, 0 seria nenhum relação).
+O HeatMap apresentou valores inconclusivos, o maior valor 0.68 e o menor -0.30 (Lembrando que o valor do HeatMap maximo é 1 e o minimo é -1, sendo 1 totalmente proporcional e -1 totalmente inversamente proporcional, 0 representa nenhuma relação).
 
-## 7º passo: Começar o processo de tratamento e limpeza de dados se houver necessidade para EDA(analise de data exploratória).
+## 7º passo: Tratamento e limpeza de dados para EDA (analise de data exploratória).
 
-Após checkar os dados notou-se que não haviam dados nulos (NaN), entretanto, a maioria dos dados estavam dependentes de legendas para interpretação. Exemplo: Na coluna gênero, 0 representava homem e 1 representava mulher. Visando tornar mais intuitivo a demonstração de dados, substitui-se os dados numéricos quando possivel pelos seus reais significados. Além disso, corrigiu-se o tipo de data de duas colunas numericas: Age e Income.
+Após checkar os dados notou-se que não haviam dados nulos (NaN), entretanto, a maioria dos dados estavam dependentes de legendas para interpretação. Exemplo: Na coluna gênero, 0 representava homem e 1 representava mulher. Visando tornar mais intuitivo a demonstração de dados, substitui-se os dados numéricos quando possivel pelos seus reais significados, assim, grande parte das colunas tornaram-se do tipo String. Além disso, corrigiu-se o tipo de data da coluna numerica "Income" que se tornou float.
 
 	db['Sex'] = db['Sex'].map({0:'Male', 1:'Female'})
 	db['Sex'] = db['Sex'].astype('string')
@@ -150,13 +150,9 @@ Após checkar os dados notou-se que não haviam dados nulos (NaN), entretanto, a
 	db['Settlement size'] = db['Settlement size'].map({0:'Small city', 1:'Mid-sized city', 2:'Big city'})
 	db['Settlement size'] = db['Settlement size'].astype('string')
 
-	db['Age'] = db['Age'].astype(int)
 	db['Income'] = db['Income'].astype(float)
 
 
 ## 8º passo: Começar o processo de EDA, verificar relações entre colunas, quais colunas são necessárias e quais podem deixar a tabela.
 
-## 9º passo: Remover colunas desnecessárias.
-
-## 10º passo: Com as colunas relevantes na tabela e a ciência de quais as relações são importantes e interessantes a serem trabalhadas, começar a plotar os gráficos coerentes para o cenário.
-
+## 9º passo: 
