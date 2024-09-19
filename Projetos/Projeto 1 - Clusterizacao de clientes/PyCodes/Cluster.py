@@ -62,6 +62,3 @@ plt.xlabel('Age')
 plt.ylabel('Income (anually)')
 plt.legend()
 plt.show()
-
-
-    
