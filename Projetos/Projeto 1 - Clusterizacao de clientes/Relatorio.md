@@ -32,10 +32,12 @@ Para a leitura e manejo dos bancos de dados será utilizada a biblioteca PANDAS.
 Para a plotagem, a transformação dos dados em gráficos e visuais, sera utilizado Matplotlib.pyplot. 
 Para tambem auxiliar com gráficos e artigos visuais será importado o Seaborn.
 
-	import pandas as pd
+ 	import pandas as pd
+	import numpy as np
 	import matplotlib.pyplot as plt
-	from matplotlib.colors import ListedColormap
 	import seaborn as sns
+	from sklearn.cluster import KMeans
+	from matplotlib.colors import ListedColormap
 
 ## 3º passo: Carregar bancos de dados (bd) ou database (db) em inglês.
 No código chamaremos a base de dados, database, de db. 
@@ -172,6 +174,27 @@ dtype: object
 
 Fora necessario acrescentar manualmente para melhor visualização deste documento a parte superior da tabela: "Columns" e "Types".
 
-## 8º passo: Começar o processo de EDA, verificar relações entre colunas, quais colunas são necessárias e quais podem deixar a tabela.
+## 8º passo: Clustering
+<p align="justify">
+Com base nas informações retiradas do banco de dados até o momento, decidiu-se começar o processo de clusterização. Para este primeiro em especifico, 
+trabalhou-se em cima da relação entre Age e Income (Idade e Renda). Temos então o seguinte código:
+</p>
+	
+ 	X = db[['Age','Income']]
+	kmeans = KMeans(n_clusters=5, init='k-means++', max_iter=300, n_init=10, random_state=0)
+	y_kmeans = kmeans.fit_predict(X)
+	plt.scatter(X.values[y_kmeans == 0, 0], X.values[y_kmeans == 0, 1], s=100, c='red', label='Cluster 1')
+	plt.scatter(X.values[y_kmeans == 1, 0], X.values[y_kmeans == 1, 1], s=100, c='blue', label='Cluster 2')
+	plt.scatter(X.values[y_kmeans == 2, 0], X.values[y_kmeans == 2, 1], s=100, c='green', label='Cluster 3')
+	plt.scatter(X.values[y_kmeans == 3, 0], X.values[y_kmeans == 3, 1], s=100, c='cyan', label='Cluster 4')
+	plt.scatter(X.values[y_kmeans == 4, 0], X.values[y_kmeans == 4, 1], s=100, c='magenta', label='Cluster 5')
+	plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s=300, c='yellow', label='Centroids')
+	plt.title('Clusters de Clientes')
+	plt.xlabel('Age')
+	plt.ylabel('Income (anually)')
+	plt.legend()
+	plt.show()
 
-## 9º passo: 
+<p align="center"><b>Output</b> </p>
+
+![AgeXIncome](https://github.com/user-attachments/assets/4a6fc31a-88f7-4954-9a28-543d9ee39510)
