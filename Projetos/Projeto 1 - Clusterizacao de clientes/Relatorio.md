@@ -32,10 +32,12 @@ Para a leitura e manejo dos bancos de dados será utilizada a biblioteca PANDAS.
 Para a plotagem, a transformação dos dados em gráficos e visuais, sera utilizado Matplotlib.pyplot. 
 Para tambem auxiliar com gráficos e artigos visuais será importado o Seaborn.
 
-	import pandas as pd
+ 	import pandas as pd
+	import numpy as np
 	import matplotlib.pyplot as plt
-	from matplotlib.colors import ListedColormap
 	import seaborn as sns
+	from sklearn.cluster import KMeans
+	from matplotlib.colors import ListedColormap
 
 ## 3º passo: Carregar bancos de dados (bd) ou database (db) em inglês.
 No código chamaremos a base de dados, database, de db. 
@@ -53,13 +55,13 @@ Com alguns comandos básicos analisou-se a estrutura do banco de dados, as colun
 <p align="center"><b>Output</b> </p>
 <b> HEAD </b>
 
-|  |         ID | Sex | Marital status | ...| Income | Occupation | Settlement size|
-|--|------------|-----|----------------|----|--------|------------|----------------|
-|0 | 100000001  |  0  |             0  |... | 124670 |          1 |               2|
-|1 | 100000002  |  1  |             1  |... | 150773 |          1 |               2|
-|2 | 100000003  |  0  |             0  |... |  89210 |          0 |               0|
-|3 | 100000004  |  0  |             0  |... | 171565 |          1 |               1|
-|4 | 100000005  |  0  |             0  |... | 149031 |          1 |               1|
+|  |         ID | Sex | Marital status | Age | Education | Income | Occupation | Settlement size|
+|--|------------|-----|----------------|-----|-----------|--------|------------|----------------|
+|0 | 100000001  |  0  |             0  |67   |          2| 124670 |          1 |               2|
+|1 | 100000002  |  1  |             1  |22   |          1| 150773 |          1 |               2|
+|2 | 100000003  |  0  |             0  |49   |          1|  89210 |          0 |               0|
+|3 | 100000004  |  0  |             0  |45   |          1| 171565 |          1 |               1|
+|4 | 100000005  |  0  |             0  |53   |          1| 149031 |          1 |               1|
 
 [5 rows x 8 columns] 
 
@@ -84,16 +86,16 @@ memory usage: 125.1 KB
 
 <b> DESCRIBE </b>
 
-|      |         ID   |     Sex     | ... |  Occupation   | Settlement size|
-|------|--------------|-------------|-----|---------------|--------------|		  
-|count | 2.000000e+03 | 2000.000000 | ... | 2000.000000   |   2000.000000|
-|mean  | 1.000010e+08 |    0.457000 | ... |    0.810500   |      0.739000|
-|std   | 5.774946e+02 |    0.498272 | ... |    0.638587   |      0.812533|
-|min   | 1.000000e+08 |    0.000000 | ... |    0.000000   |      0.000000|
-|25%   | 1.000005e+08 |    0.000000 | ... |    0.000000   |      0.000000|
-|50%   | 1.000010e+08 |    0.000000 | ... |    1.000000   |      1.000000|
-|75%   | 1.000015e+08 |    1.000000 | ... |    1.000000   |      1.000000|
-|max   | 1.000020e+08 |    1.000000 | ... |    2.000000   |      2.000000|
+|    |     ID      |     Sex     |Marital status|     Age    |  Education  |    Income    | Occupation  | Settlement size|
+|----|-------------|-------------|--------------|------------|-------------|--------------|-------------|----------------|
+|count|2.000000e+03| 2000.000000 |  2000.000000 |2000.000000 |  2000.00000 |   2000.000000| 2000.000000 |     2000.000000|
+|mean |1.000010e+08|    0.457000 |     0.496500 |  35.909000 |     1.03800 | 120954.419000|    0.810500 |        0.739000|
+|std  |5.774946e+02|    0.498272 |     0.500113 |  11.719402 |     0.59978 |  38108.824679|    0.638587 |        0.812533|
+|min  |1.000000e+08|    0.000000 |     0.000000 |  18.000000 |     0.00000 |  35832.000000|    0.000000 |        0.000000|
+|25%  |1.000005e+08|    0.000000 |     0.000000 |  27.000000 |     1.00000 |  97663.250000|    0.000000 |        0.000000|
+|50%  |1.000010e+08|    0.000000 |     0.000000 |  33.000000 |     1.00000 | 115548.500000|    1.000000 |        1.000000|
+|75%  |1.000015e+08|    1.000000 |     1.000000 |  42.000000 |     1.00000 | 138072.250000|    1.000000 |        1.000000|
+|max  |1.000020e+08|    1.000000 |     1.000000 |  76.000000 |     3.00000 | 309364.000000|    2.000000 |        2.000000|
 
 <b> NUNIQUE </b>
 
@@ -172,6 +174,27 @@ dtype: object
 
 Fora necessario acrescentar manualmente para melhor visualização deste documento a parte superior da tabela: "Columns" e "Types".
 
-## 8º passo: Começar o processo de EDA, verificar relações entre colunas, quais colunas são necessárias e quais podem deixar a tabela.
+## 8º passo: Clustering
+<p align="justify">
+Com base nas informações retiradas do banco de dados até o momento, decidiu-se começar o processo de clusterização. Para este primeiro em especifico, 
+trabalhou-se em cima da relação entre Age e Income (Idade e Renda). Temos então o seguinte código:
+</p>
+	
+ 	X = db[['Age','Income']]
+	kmeans = KMeans(n_clusters=5, init='k-means++', max_iter=300, n_init=10, random_state=0)
+	y_kmeans = kmeans.fit_predict(X)
+	plt.scatter(X.values[y_kmeans == 0, 0], X.values[y_kmeans == 0, 1], s=100, c='red', label='Cluster 1')
+	plt.scatter(X.values[y_kmeans == 1, 0], X.values[y_kmeans == 1, 1], s=100, c='blue', label='Cluster 2')
+	plt.scatter(X.values[y_kmeans == 2, 0], X.values[y_kmeans == 2, 1], s=100, c='green', label='Cluster 3')
+	plt.scatter(X.values[y_kmeans == 3, 0], X.values[y_kmeans == 3, 1], s=100, c='cyan', label='Cluster 4')
+	plt.scatter(X.values[y_kmeans == 4, 0], X.values[y_kmeans == 4, 1], s=100, c='magenta', label='Cluster 5')
+	plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s=300, c='yellow', label='Centroids')
+	plt.title('Clusters de Clientes')
+	plt.xlabel('Age')
+	plt.ylabel('Income (anually)')
+	plt.legend()
+	plt.show()
 
-## 9º passo: 
+<p align="center"><b>Output</b> </p>
+
+![AgeXIncome](https://github.com/user-attachments/assets/4a6fc31a-88f7-4954-9a28-543d9ee39510)
