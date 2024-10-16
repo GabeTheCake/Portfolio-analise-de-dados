@@ -1,16 +1,20 @@
-<h1 align="center">Projeto 1: Customer Clustering</h1>
+<h1 align="center">Projeto 2: Customer churn regression and prediction</h1>
 
 <p align="justify">
-O seguinte projeto fora desenvolvido com base no banco de dados encontrado no site Kaggle. Este banco de dados, o qual chamaremos de bd daqui para frente, possui o nome de Customer Clustering e possui dois arquivos .csv, um chamado “Segmentation data” e outro “Segmentation data legend”. Devido as capacidades que se busca provar com este trabalho, tal bd apresentou-se como apropriado para utilização devido a sua simplicidade e quão rico é em informações de variados tipos. Em um primeiro momento em contato com o banco de dados, sabe-se que as informações extraídas deste bd podem ou não apresentar relações entre si bem como podem ou não demonstrar indicativos de padrões após uma análise mais profunda.
+O seguinte projeto fora desenvolvido com base no banco de dados encontrado no site Kaggle. Este banco de dados, o qual chamaremos de bd daqui para frente, possui o nome de Logisticregression telecomCustomer churmprediction e possui três arquivos .csv chamados: “churn_data”, “customer_data” e "internet_data". Devido as capacidades que se busca provar com este trabalho, tal bd apresentou-se como apropriado para utilização devido a sua simplicidade e quão rico é em informações de variados tipos. Em um primeiro momento em contato com o banco de dados, sabe-se que as informações extraídas deste bd podem apresentar relações entre si bem como podem demonstrar indicativos de padrões após uma análise mais profunda.
 	
 Na descrição do banco de dados existia a seguinte descrição:
 </p>	
 
-	“Customer Segmentation is the subdivision of a market into discrete customer groups that share similar characteristics. Customer Segmentation can be a
-	powerful means to identify unsatisfied customer needs. Using the above data companies can then outperform the competition by developing uniquely appealing
-	products and services. You are owing a supermarket mall and through membership cards, you have some basic data about your customers like Customer ID, age,
- 	gender, annual income 	and spending score. You want to understand the customers like who are the target customers so that the sense can be given to
-  	marketing team and plan the strategy accordingly.”
+	“You have a telecom firm which has collected data of all its customers"
+	The main types of attributes are:
+	1.Demographics (age, gender etc.)
+	2.Services availed (internet packs purchased, special offers etc)
+	3.Expenses (amount of recharge done per month etc.)
+	Based on all this past information, you want to build a model which will predict whether a particular customer will churn or not.
+	So the variable of interest, i.e. the target variable here is ‘Churn’ which will tell us whether or not a particular customer has 
+ 	churned. It is a binary variable 1 means that the customer has churned 	and 0 means the customer has not churned.
+	With 21 predictor variables we need to predict whether a particular customer will switch to another telecom provider or not.
  
 <p align="justify">
 Com base na descrição, pode-se saber qual trabalho deve ser executado em tal db. Quer-se saber qual o cliente alvo, qual a condição financeira e o que mais podemos saber sobre ele para com que se possa informar ao setor de marketing e planejar uma estratégia de acordo.
