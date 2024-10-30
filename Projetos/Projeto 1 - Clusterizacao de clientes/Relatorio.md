@@ -131,7 +131,7 @@ Antes de continuar para o tratamento dos dados caso houver a necessidade para ta
 
 ![heatmap_correlacao](https://github.com/user-attachments/assets/5d65358a-667d-4ea6-ad52-d099495391c6)
 
-O HeatMap apresentou valores inconclusivos, o maior valor 0.68 e o menor -0.30 (Lembrando que o valor do HeatMap maximo é 1 e o minimo é -1, sendo 1 totalmente proporcional e -1 totalmente inversamente proporcional, 0 representa nenhuma relação).
+O HeatMap apresentou valores esperados e nada fora da normalidade. O maior valor foi de 0.68 e o menor de -0.30 (Lembrando que o valor do HeatMap maximo é 1 e o minimo é -1, sendo 1 totalmente proporcional e -1 totalmente inversamente proporcional, 0 representa nenhuma relação). Os valores com maior proporcionalidade foram as relações obvias que ja eram esperadas como: Um cargo alto e um sálario alto ou Idade maior e maior grau de educação.
 
 ## 7º passo: Tratamento e limpeza de dados para EDA (analise de data exploratória).
 
