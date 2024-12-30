@@ -5,7 +5,7 @@
         desensolvi com base em databases retirados do site Kaggle! Estes projetos foram desenvolvidos
         especificamente para apresentar minhas capacidades como analista de dados! Na primeira 
         pasta demonstro utilizando ferramentas da linguagem de programação PYTHON e, na segunda 
-        pasta, o foco é nas ferramentas do PowerBi. Vale ressaltar que, embora haja somente três 
+        pasta, o foco é nas ferramentas do PowerBi. Vale ressaltar que, embora haja somente alguns 
         projetos aqui, existem outros em que trabalhei para empresas e organizações que possuem 
         informações sigilosas, ou seja, não disponibilazerei em qualquer tipo de plataforma online. 
         De qualquer forma, caso houver interesse em saber mais sobre mim ou meu trabalho, sinta-se 
