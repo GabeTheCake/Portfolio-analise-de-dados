@@ -17,15 +17,14 @@
   - Projeto 1: Brazilian E-commerce;
 
         - Limpeza e preparação dos dados;
-        - Construção de gráficos e modelos para representar os dados de forma intuitiva e de facil entendimento;
+        - Alimentar gráficos e modelos para mostrar dados de forma intuitiva e facil entendimento;
         - Mostrar dados importantes e insights com base nas informações encontradas.
 
   - Projeto 2: Video Game Sales.
 
         - Limpeza e preparação dos dados;
-        - Construção de gráficos e modelos para representar os dados de forma intuitiva e de facil entendimento;
-        - Mostrar dados importantes e insights com base nas informações encontradas.  
-
+        - Alimentar gráficos e modelos para mostrar dados de forma intuitiva e facil entendimento;
+        - Mostrar dados importantes e insights com base nas informações encontradas.
         
 <h2 align="center">Projetos - Python </h2>
 
