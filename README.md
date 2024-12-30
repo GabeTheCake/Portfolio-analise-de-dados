@@ -1,17 +1,33 @@
 <h1 align="center">Portfólio</h1>
 <h2 align="center">Introdução</h2>
 <p align="justify">
-        Olá, bem vindo(a) ao meu repositório, este contêm três projetos que desensolvi 
-        com base em databases retirados do site Kaggle! Estes projetos foram desenvolvidos
-        especificamente para apresentar minhas capacidades como analista de dados. Vale 
-        ressaltar que, embora haja somente três projetos aqui, existem outros em que 
-        trabalhei para empresas e organizações que possuem informações sigilosas, ou seja,
-        não disponibilazerei em qualquer tipo de plataforma online. De qualquer forma, caso 
-        houver interesse em saber mais sobre mim ou meu trabalho, sinta-se a vontade para 
-        entrar em contato atravez das informações que você encontrará aqui em baixo!
+        Olá, bem vindo(a) ao meu repositório! Este contêm duas pastas, ambas com analises que 
+        desensolvi com base em databases retirados do site Kaggle! Estes projetos foram desenvolvidos
+        especificamente para apresentar minhas capacidades como analista de dados! Na primeira 
+        pasta demonstro utilizando ferramentas da linguagem de programação PYTHON e, na segunda 
+        pasta o foco é nas ferramentas do PowerBi. Vale ressaltar que, embora haja somente três 
+        projetos aqui, existem outros em que trabalhei para empresas e organizações que possuem 
+        informações sigilosas, ou seja, não disponibilazerei em qualquer tipo de plataforma online. 
+        De qualquer forma, caso houver interesse em saber mais sobre mim ou meu trabalho, sinta-se 
+        a vontade para entrar em contato atravez das informações que você encontrará aqui em baixo!
 </p>
+
+<h2 align="center">Projetos - PowerBi </h2>
+  
+  - Projeto 1: Brazilian E-commerce;
+
+        - Limpeza e preparação dos dados;
+        - Construção de gráficos e modelos para representar os dados de forma intuitiva e de facil entendimento;
+        - Mostrar dados importantes e insights com base nas informações encontradas.
+
+  - Projeto 2: Video Game Sales.
+
+        - Limpeza e preparação dos dados;
+        - Construção de gráficos e modelos para representar os dados de forma intuitiva e de facil entendimento;
+        - Mostrar dados importantes e insights com base nas informações encontradas.  
+
         
-<h2 align="center">Projetos</h2>
+<h2 align="center">Projetos - Python </h2>
 
   - Projeto 1: Clusterização de clientes;
     
