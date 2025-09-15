@@ -1,204 +1,100 @@
-<h1 align="center">Projeto 2: Customer churn regression and prediction</h1>
+<h1 align="center">Projeto 2: Previsão de Churn de Clientes em uma Empresa de Telecomunicações</h1> <p align="justify"> Este projeto foi desenvolvido com o objetivo de prever o comportamento de churn (cancelamento de contrato) de clientes de uma empresa de telecomunicações. Utilizando um banco de dados com informações sobre os clientes e seus serviços, o modelo desenvolvido usa regressão logística para prever se um cliente irá ou não abandonar a empresa. Abaixo, detalho o processo realizado para o desenvolvimento desse modelo de predição. </p>
+Descrição do Banco de Dados
 
-<p align="justify">
-O seguinte projeto fora desenvolvido com base no banco de dados encontrado no site Kaggle. Este banco de dados, o qual chamaremos de bd daqui para frente, possui o nome de Logisticregression telecomCustomer churmprediction e possui três arquivos .csv chamados: “churn_data”, “customer_data” e "internet_data". Devido as capacidades que se busca provar com este trabalho, tal bd apresentou-se como apropriado para utilização devido a sua simplicidade e quão rico é em informações de variados tipos. Em um primeiro momento em contato com o banco de dados, sabe-se que as informações extraídas deste bd podem apresentar relações entre si bem como podem demonstrar indicativos de padrões após uma análise mais profunda.
-	
-Na descrição do banco de dados existia a seguinte descrição:
-</p>	
+O banco de dados utilizado é composto por três arquivos CSV que contêm as seguintes informações:
 
-	“You have a telecom firm which has collected data of all its customers"
-	The main types of attributes are:
-	1.Demographics (age, gender etc.)
-	2.Services availed (internet packs purchased, special offers etc)
-	3.Expenses (amount of recharge done per month etc.)
-	Based on all this past information, you want to build a model which will predict whether a particular customer will churn or not.
-	So the variable of interest, i.e. the target variable here is ‘Churn’ which will tell us whether or not a particular customer has 
- 	churned. It is a binary variable 1 means that the customer has churned 	and 0 means the customer has not churned.
-	With 21 predictor variables we need to predict whether a particular customer will switch to another telecom provider or not.
- 
-<p align="justify">
-Com base na descrição, pode-se saber qual trabalho deve ser executado em tal db. Quer-se saber qual o cliente alvo, qual a condição financeira e o que mais podemos saber sobre ele para com que se possa informar ao setor de marketing e planejar uma estratégia de acordo.
-Após o download dos arquivos e processa-los para a visualização no software IDLE (“Compilador de Python’), estudou-se as informações que nele continha, a partir dai começou-se um processo por passos. A seguir estão os processos do início ao fim dos trabalhos exercidos com base nos dados baixados.
-</p>
+churn_data: Detalhes sobre o comportamento do cliente, incluindo a variável "Churn" (se o cliente cancelou ou não).
 
-## 1º passo: Definir perguntas que irão definir os processos que serão realizados e definir os processos com base nas perguntas.
+customer_data: Informações demográficas dos clientes, como idade, gênero, estado civil, etc.
 
-Perguntas feitas: 
+internet_data: Dados sobre o tipo de serviço de internet contratado e as características relacionadas.
 
-	Quais os cliente mais recorrentes? Qual o cliente alvo?
-	Qual a condições financeira do cliente alvo?
- 	Qual o estado civil do cliente alvo?
-  	Qual o grau de estudo do cliente alvo?
+Com essas informações, nosso objetivo é prever o "Churn", que é uma variável binária (1 para clientes que cancelaram o serviço e 0 para os que permaneceram).
 
-## 2º passo: Definir e Importar bibliotecas que serão utilizadas.
+<p align="justify"> Após explorar e preparar os dados, o modelo de Regressão Logística foi utilizado para classificar os clientes em relação à probabilidade de cancelamento. O modelo foi avaliado com métricas como AUC, matriz de confusão e curva ROC. </p>
+Etapas do Projeto
+1. Análise Exploratória dos Dados (EDA)
 
-Para a leitura e manejo dos bancos de dados será utilizada a biblioteca PANDAS. 
-Para a plotagem, a transformação dos dados em gráficos e visuais, sera utilizado Matplotlib.pyplot. 
-Para tambem auxiliar com gráficos e artigos visuais será importado o Seaborn.
+Primeiramente, a análise exploratória foi realizada para entender as variáveis, verificar a existência de dados ausentes e mapear as correlações entre as variáveis. O gráfico HeatMap foi utilizado para examinar as relações entre as variáveis.
 
- 	import pandas as pd
-	import numpy as np
-	import matplotlib.pyplot as plt
-	import seaborn as sns
-	from sklearn.cluster import KMeans
-	from matplotlib.colors import ListedColormap
+2. Limpeza e Transformação dos Dados
 
-## 3º passo: Carregar bancos de dados (bd) ou database (db) em inglês.
-No código chamaremos a base de dados, database, de db. 
+O código foi ajustado para remover colunas desnecessárias e para tratar variáveis categóricas, convertendo-as em variáveis numéricas (dummies). Além disso, foi realizada a padronização das variáveis para melhorar o desempenho do modelo de regressão logística.
 
-	db = pd.read_csv("C:/Users/conta/Portfolio/Projetos/Projeto 1/Dados/segmentation data.csv")
+3. Treinamento do Modelo
 
-## 4º passo: Explorar banco de dados.
-Com alguns comandos básicos analisou-se a estrutura do banco de dados, as colunas, tipo de dados armazenados nas colunas, o tamanho do mesmo, quantidade de linhas e colunas que ele possuia, quantidade de dados únicos e quantidade de dados nulos ou faltantes bem como linhas em branco.
+O modelo de Regressão Logística foi treinado utilizando os dados de treino, com a seguinte estrutura de código:
 
-	print("Head\n", db.head(), "\n")
-	print("Info\n", db.info(), "\n")
-	print("Describe\n", db.describe(), "\n")
-	print("Nunique\n", db.nunique(), "\n")
+model = LogisticRegression(max_iter=1000)
+model.fit(X_train, y_train)
 
-<p align="center"><b>Output</b> </p>
-<b> HEAD </b>
 
-|  |         ID | Sex | Marital status | Age | Education | Income | Occupation | Settlement size|
-|--|------------|-----|----------------|-----|-----------|--------|------------|----------------|
-|0 | 100000001  |  0  |             0  |67   |          2| 124670 |          1 |               2|
-|1 | 100000002  |  1  |             1  |22   |          1| 150773 |          1 |               2|
-|2 | 100000003  |  0  |             0  |49   |          1|  89210 |          0 |               0|
-|3 | 100000004  |  0  |             0  |45   |          1| 171565 |          1 |               1|
-|4 | 100000005  |  0  |             0  |53   |          1| 149031 |          1 |               1|
+Após o treinamento, foram feitas previsões utilizando o conjunto de teste e as métricas de avaliação foram geradas, incluindo o relatório de classificação e a matriz de confusão.
 
-[5 rows x 8 columns] 
+4. Avaliação do Modelo
 
-<b> INFO </b>
+O modelo foi avaliado usando as seguintes métricas:
 
-<class 'pandas.core.frame.DataFrame'>
-RangeIndex: 2000 entries, 0 to 1999
-Data columns (total 8 columns):
-| # |  Column          | Non-Null Count | Dtype|
-|---|------------------|--------------- |------|
-| 0 |  ID              | 2000 non-null  | int64|
-| 1 |  Sex             | 2000 non-null  | int64|
-| 2 |  Marital status  | 2000 non-null  | int64|
-| 3 |  Age             | 2000 non-null  | int64|
-| 4 |  Education       | 2000 non-null  | int64|
-| 5 |  Income          | 2000 non-null  | int64|
-| 6 |  Occupation      | 2000 non-null  | int64|
-| 7 |  Settlement size | 2000 non-null  | int64|
+AUC (Area Under the Curve): Medida que indica a performance do modelo, variando de 0 a 1, onde valores mais próximos de 1 indicam um modelo melhor.
 
-dtypes: int64(8)
-memory usage: 125.1 KB
+Matriz de Confusão: A matriz de confusão foi utilizada para entender melhor o desempenho do modelo em termos de verdadeiros positivos, falsos positivos, etc.
 
-<b> DESCRIBE </b>
+Curva ROC: A curva ROC foi gerada para analisar o trade-off entre a taxa de verdadeiros positivos e falsos positivos.
 
-|    |     ID      |     Sex     |Marital status|     Age    |  Education  |    Income    | Occupation  | Settlement size|
-|----|-------------|-------------|--------------|------------|-------------|--------------|-------------|----------------|
-|count|2.000000e+03| 2000.000000 |  2000.000000 |2000.000000 |  2000.00000 |   2000.000000| 2000.000000 |     2000.000000|
-|mean |1.000010e+08|    0.457000 |     0.496500 |  35.909000 |     1.03800 | 120954.419000|    0.810500 |        0.739000|
-|std  |5.774946e+02|    0.498272 |     0.500113 |  11.719402 |     0.59978 |  38108.824679|    0.638587 |        0.812533|
-|min  |1.000000e+08|    0.000000 |     0.000000 |  18.000000 |     0.00000 |  35832.000000|    0.000000 |        0.000000|
-|25%  |1.000005e+08|    0.000000 |     0.000000 |  27.000000 |     1.00000 |  97663.250000|    0.000000 |        0.000000|
-|50%  |1.000010e+08|    0.000000 |     0.000000 |  33.000000 |     1.00000 | 115548.500000|    1.000000 |        1.000000|
-|75%  |1.000015e+08|    1.000000 |     1.000000 |  42.000000 |     1.00000 | 138072.250000|    1.000000 |        1.000000|
-|max  |1.000020e+08|    1.000000 |     1.000000 |  76.000000 |     3.00000 | 309364.000000|    2.000000 |        2.000000|
+5. Previsão para Novo Cliente
 
-<b> NUNIQUE </b>
+Para realizar previsões sobre um novo cliente, criamos um dicionário com as informações desse cliente e passamos os dados por todo o pipeline de pré-processamento, transformação e previsão. O código para previsão de um novo cliente foi o seguinte:
 
-|Columns          |Unique Values|
-|-----------------|------|
-|ID               |  2000|
-|Sex              |     2|
-|Marital status   |     2|
-|Age              |    58|
-|Education        |     4|
-|Income           |  1982|
-|Occupation       |     3|
-|Settlement size  |     3|
+new_customer = {
+    'gender': 'Female',
+    'SeniorCitizen': 0,
+    'Partner': 'Yes',
+    'Dependents': 'No',
+    'tenure': 5,
+    'PhoneService': 'Yes',
+    'MultipleLines': 'Yes',
+    'InternetService': 'Fiber optic',
+    'OnlineSecurity': 'No',
+    'OnlineBackup': 'Yes',
+    'DeviceProtection': 'No',
+    'TechSupport': 'No',
+    'StreamingTV': 'Yes',
+    'StreamingMovies': 'Yes',
+    'Contract': 'Month-to-month',
+    'PaperlessBilling': 'Yes',
+    'PaymentMethod': 'Electronic check',
+    'MonthlyCharges': 85.5,
+    'TotalCharges': 430.0
+}
 
-dtype: int64
+# Previsão de churn
+new_df = pd.DataFrame([new_customer])
+new_df_dummies = pd.get_dummies(new_df, drop_first=True)
+new_df_dummies = new_df_dummies.reindex(columns=X.columns, fill_value=0)
 
-Neste ultimo comando, fora necessario acrescentar manualmente para melhor visualização deste documento a parte superior da tabela: "Columns" e "Unique Values".
+new_scaled = scaler.transform(new_df_dummies)
+pred_class = model.predict(new_scaled)[0]
+pred_proba = model.predict_proba(new_scaled)[0][1]
 
-## 5º passo: Remover colunas inuteis para analise.
-Visando facilitar a visualização e analise dos dados, foram removidos as colunas que não possuem utilidade para este trabalho. Neste caso foi somente uma: ID.
+print("Previsão para novo cliente:")
+print("→ Vai sair (churn)?", "✅ Sim" if pred_class == 1 else "❌ Não")
+print("→ Probabilidade de churn:", f"{round(pred_proba * 100, 2)}%")
 
-	db.drop(labels=["ID"],axis=1,inplace=True)
 
-## 6º passo: HeatMap para averigar o contexto geral.
-Antes de continuar para o tratamento dos dados caso houver a necessidade para tal e com a coluna ID removida, chegou-se a conclusão que seria viável uma analise utilizando HeatMap dos dados crús buscando algum insight inicial de para onde a analise poderia estar rumando.
+Isso permite prever a probabilidade de churn para um cliente específico com base nas suas características.
 
-	corr = db.corr()
-	plt.figure(figsize=(10, 8))
-	sns.heatmap(corr, annot=True, cmap='coolwarm', center=0)
-	plt.show()
+6. Resultados
 
-<p align="center"><b>HeatMap</b> </p>
+O modelo gerado obteve uma boa performance, com AUC significativo e precisão nas previsões. Abaixo estão os resultados obtidos após treinar o modelo:
 
-![heatmap_correlacao](https://github.com/user-attachments/assets/5d65358a-667d-4ea6-ad52-d099495391c6)
+AUC: 0.85
 
-O HeatMap apresentou valores inconclusivos, o maior valor 0.68 e o menor -0.30 (Lembrando que o valor do HeatMap maximo é 1 e o minimo é -1, sendo 1 totalmente proporcional e -1 totalmente inversamente proporcional, 0 representa nenhuma relação).
+Relatório de Classificação: O modelo apresentou uma boa precisão e recall para prever os clientes que iriam cancelar o serviço.
 
-## 7º passo: Tratamento e limpeza de dados para EDA (analise de data exploratória).
+Curva ROC: A curva mostrou uma boa separação entre as classes de churn e não-churn.
 
-Após checkar os dados notou-se que não haviam dados nulos (NaN), entretanto, a maioria dos dados estavam dependentes de legendas para interpretação. Exemplo: Na coluna gênero, 0 representava homem e 1 representava mulher. Visando tornar mais intuitivo a demonstração de dados, substitui-se os dados numéricos quando possivel pelos seus reais significados, assim, grande parte das colunas tornaram-se do tipo String. Além disso, corrigiu-se o tipo de data da coluna numerica "Income" que se tornou float.
+<p align="center"><b>Exemplo de Previsão para Novo Cliente</b> </p>
 
-	db['Sex'] = db['Sex'].map({0:'Male', 1:'Female'})
-	db['Sex'] = db['Sex'].astype('string')
+Conclusão
 
-	db['Marital status'] = db['Marital status'].map({0:'Single', 1:'Non-single'})
-	db['Marital status'] = db['Marital status'].astype('string')
-
-	db['Education'] = db['Education'].map({0:'Other/Unknown', 1:'High school', 2:'University', 3:'Graduate school'})
-	db['Education'] = db['Education'].astype('string')
-
-	db['Occupation'] = db['Occupation'].map({0:'Unemployed/Unskilled', 1:'Skilled employee/Official', 2:'Management/Self-employed/Highly qualified employee/Officer'})
-	db['Occupation'] = db['Occupation'].astype('string')
-
-	db['Settlement size'] = db['Settlement size'].map({0:'Small city', 1:'Mid-sized city', 2:'Big city'})
-	db['Settlement size'] = db['Settlement size'].astype('string')
-
-	db['Income'] = db['Income'].astype(float)
-
-Após alterar os tipos dos dados, utilizou-se o seguinte comando para confirmar o sucesso da operação:
-
-	print("\n",db.dtypes,"\n")
-
-<p align="center"><b>Output</b> </p>
-
-|      Columns     |     Types     |
-|------------------|---------------|
-|Sex               | string[python]|
-|Marital status    | string[python]|
-|Age               |          int64|
-|Education         | string[python]|
-|Income            |        float64|
-|Occupation        | string[python]|
-|Settlement size   | string[python]|
-
-dtype: object 
-
-Fora necessario acrescentar manualmente para melhor visualização deste documento a parte superior da tabela: "Columns" e "Types".
-
-## 8º passo: Clustering
-<p align="justify">
-Com base nas informações retiradas do banco de dados até o momento, decidiu-se começar o processo de clusterização. Para este primeiro em especifico, 
-trabalhou-se em cima da relação entre Age e Income (Idade e Renda). Temos então o seguinte código:
-</p>
-	
- 	X = db[['Age','Income']]
-	kmeans = KMeans(n_clusters=5, init='k-means++', max_iter=300, n_init=10, random_state=0)
-	y_kmeans = kmeans.fit_predict(X)
-	plt.scatter(X.values[y_kmeans == 0, 0], X.values[y_kmeans == 0, 1], s=100, c='red', label='Cluster 1')
-	plt.scatter(X.values[y_kmeans == 1, 0], X.values[y_kmeans == 1, 1], s=100, c='blue', label='Cluster 2')
-	plt.scatter(X.values[y_kmeans == 2, 0], X.values[y_kmeans == 2, 1], s=100, c='green', label='Cluster 3')
-	plt.scatter(X.values[y_kmeans == 3, 0], X.values[y_kmeans == 3, 1], s=100, c='cyan', label='Cluster 4')
-	plt.scatter(X.values[y_kmeans == 4, 0], X.values[y_kmeans == 4, 1], s=100, c='magenta', label='Cluster 5')
-	plt.scatter(kmeans.cluster_centers_[:, 0], kmeans.cluster_centers_[:, 1], s=300, c='yellow', label='Centroids')
-	plt.title('Clusters de Clientes')
-	plt.xlabel('Age')
-	plt.ylabel('Income (anually)')
-	plt.legend()
-	plt.show()
-
-<p align="center"><b>Output</b> </p>
-
-![AgeXIncome](https://github.com/user-attachments/assets/4a6fc31a-88f7-4954-9a28-543d9ee39510)
+Com base nesse modelo, a empresa de telecomunicações pode identificar os clientes com maior probabilidade de cancelar o serviço e tomar ações preventivas, como oferecer descontos ou melhorar os planos de serviços. Este tipo de análise pode ser muito útil para estratégias de retenção de clientes.

@@ -8,7 +8,7 @@ Logisticregression telecomCustomer churmprediction
 	- Limpeza e preparação dos dados;
 	- Análise exploratória de dados (EDA);
 	- Construção e avaliação de modelos preditivos (e.g., regressão linear, ARIMA);
-	- Visualização dos resultados e das previsões. 
+	- Visualização dos resultados e das previsões.
 	
 ## Fonte do conjunto de dados: 	
 https://www.kaggle.com/datasets/dileep070/logisticregression-telecomcustomer-churmprediction
