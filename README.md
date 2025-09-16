@@ -9,7 +9,7 @@
         projetos aqui, existem outros em que trabalhei para empresas e organizações que possuem 
         informações sigilosas, ou seja, não disponibilazerei em qualquer tipo de plataforma online. 
         De qualquer forma, caso houver interesse em saber mais sobre mim ou meu trabalho, sinta-se 
-        a vontade para entrar em contato atravez das informações que você encontrará aqui em baixo!
+        a vontade para entrar em contato através das informações que você encontrará aqui em baixo!
 </p>
 
 <h2 align="center">Projetos - PowerBi </h2>
