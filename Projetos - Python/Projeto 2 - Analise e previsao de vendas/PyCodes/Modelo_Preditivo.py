@@ -1,5 +1,5 @@
-import numpy as np
 import pandas as pd
+import tensorflow as ts
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import confusion_matrix, classification_report, roc_auc_score, RocCurveDisplay
@@ -7,9 +7,9 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 
 # Carregar os dados
-db = pd.read_csv('C:/Users/User/Desktop/Cds/Portfolio/Projetos - Python/Projeto 2 - Analise e previsao de vendas/Dados/churn_data.csv')
-db1 = pd.read_csv('C:/Users/User/Desktop/Cds/Portfolio/Projetos - Python/Projeto 2 - Analise e previsao de vendas/Dados/customer_data.csv')
-db2 = pd.read_csv('C:/Users/User/Desktop/Cds/Portfolio/Projetos - Python/Projeto 2 - Analise e previsao de vendas/Dados/internet_data.csv')
+db = pd.read_csv('Dados/churn_data.csv')
+db1 = pd.read_csv('Dados/customer_data.csv')
+db2 = pd.read_csv('Dados/internet_data.csv')
 
 # Juntar os dados
 merged = pd.merge(db1, db, on='customerID')

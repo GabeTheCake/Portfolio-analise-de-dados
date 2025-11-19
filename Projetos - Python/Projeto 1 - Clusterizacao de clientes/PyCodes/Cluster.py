@@ -6,7 +6,7 @@ from sklearn.cluster import KMeans
 from matplotlib.colors import ListedColormap
 
 #Loading the database
-db = pd.read_csv("C:/Users/conta/Portfolio/Projetos/Projeto 1/Dados/segmentation data.csv")
+db = pd.read_csv("C:/Users/Gabriel/Portfolio/Projetos/Projeto 1/Dados/segmentation data.csv")
 
 #Exploring the database
 print("Head\n", db.head(), "\n")
