@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+input[type="text"] {
+    display: flex;
+    justify-self: center;
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 10px 0;
+}
+
+li input[type="checkbox"] {
+    margin-right: 10px;
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+li input[type="checkbox"]:hover {
+    transform: scale(1.6);
+}
+
+span.task-text {
+    font-size: 14px;
+    flex: 1;
+    text-align: left;
+}
+
+button.delete-btn {
+    width: min-content;
+    background-color: #f44336;
+    padding: 5px 10px;
+    margin-left: 10px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button.delete-btn:hover {
+    background-color: #d32f2f;
+}
+
+.parallax-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    background-image: url('pc_t.png');
+    background-repeat: repeat;
+    background-size: 120px auto;
+    animation: moveDiagonal 80s linear infinite;
+    z-index: -1;
+    opacity: 0.03;
+    pointer-events: none;
+}
+
+@keyframes moveDiagonal {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% -100%;
+    }
+}
